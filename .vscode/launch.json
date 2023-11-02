@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "nRF52 Segger",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/pca10040/${config:softdevice}/ses/Output/${config:debug-config}/Exe/twi_scanner_pca10040.elf",
+            "servertype": "jlink",
+            "device": "nRF52832_xxAA",
+            "interface": "swd",
+            "armToolchainPath": "${config:compiler-path}/bin",
+            "svdFile": "${config:nrf-sdk-path}/modules/nrfx/mdk/nrf52.svd",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "build",
+            "serverpath": "${config:jlink-path}/JLinkGDBServerCL.exe"
+        }
+    ]
+}

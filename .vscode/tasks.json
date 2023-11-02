@@ -1,0 +1,101 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "emBuild",
+            "args": [
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
+                "-config",
+                "${config:debug-config}",
+                "-verbose",
+                "-time"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "recover",
+            "type": "shell",
+            "command": "nrfjprog",
+            "args": [
+                "--recover"
+            ],
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "emBuild",
+            "args": [
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
+                "-config",
+                "${config:debug-config}",
+                "-clean",
+                "-verbose"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "nrfjprog",
+            "args": [
+                "--program",
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/Output/${config:debug-config}/Exe/twi_scanner_pca10040.hex",
+                "--sectorerase",
+                "--verify",
+                "--reset"
+            ],
+            "dependsOn": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        }
+    ]
+}

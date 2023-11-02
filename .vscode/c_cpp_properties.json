@@ -1,0 +1,55 @@
+{
+    "configurations": [
+        {
+            "name": "nRF52 Segger",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:nrf-sdk-path}/**",
+                "${config:ses-path}/include/**"
+            ],
+            "defines": [
+                "__SIZEOF_WCHAR_T=4",
+                "__ARM_ARCH_7EM__",
+                "__SES_ARM",
+                "__ARM_ARCH_FPV4_SP_D16__",
+                "__HEAP_SIZE__=8192",
+                "__SES_VERSION=73000",
+                "__GNU_LINKER",
+                "DEBUG",
+                "DEBUG_NRF",
+                "BOARD_PCA10040",
+                "CONFIG_GPIO_AS_PINRESET",
+                "FLOAT_ABI_HARD",
+                "INITIALIZE_USER_SECTIONS",
+                "NO_VTOR_CONFIG",
+                "NRF52",
+                "NRF52832_XXAA",
+                "NRF52_PAN_74"
+            ],
+            "compilerPath": "${config:compiler-path}/bin/arm-none-eabi-gcc.exe",
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "gnu99",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mlittle-endian",
+                "-mfloat-abi=hard",
+                "-mfpu=fpv4-sp-d16",
+                "-mthumb",
+                "-munaligned-access",
+                "-mtp=soft",
+                "-mfp16-format=ieee",
+                "-nostdinc",
+                "-gdwarf-4",
+                "-g3",
+                "-gpubnames",
+                "-fomit-frame-pointer",
+                "-fno-dwarf2-cfi-asm",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-fshort-enums",
+                "-fno-common"
+            ]
+        }
+    ],
+    "version": 4
+}
