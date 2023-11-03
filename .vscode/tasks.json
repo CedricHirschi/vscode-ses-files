@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "${config:ses-path}/bin/emBuild.exe",
             "args": [
-                "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/${config:project-name}.emProject",
                 "-config",
                 "${config:debug-config}",
                 "-verbose",
@@ -53,7 +53,7 @@
             "type": "shell",
             "command": "${config:ses-path}/bin/emBuild.exe",
             "args": [
-                "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/${config:project-name}.emProject",
                 "-config",
                 "${config:debug-config}",
                 "-clean",
@@ -78,7 +78,7 @@
             "command": "nrfjprog",
             "args": [
                 "--program",
-                "${workspaceFolder}/pca10040/${config:softdevice}/ses/Output/${config:debug-config}/Exe/twi_scanner_pca10040.hex",
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/Output/${config:debug-config}/Exe/${config:project-name}.hex",
                 "--sectorerase",
                 "--verify",
                 "--reset"
@@ -95,6 +95,26 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": false
+            }
+        },
+        {
+            "label": "size",
+            "type": "shell",
+            "command": "${config:ses-path}/gcc/arm-none-eabi/bin/arm-none-eabi-size.exe",
+            "args": [
+                "${workspaceFolder}/pca10040/${config:softdevice}/ses/Output/${config:debug-config}/Exe/${config:project-name}.elf"
+            ],
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
             }
         }
     ]
