@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "emBuild",
+            "command": "${config:ses-path}/bin/emBuild.exe",
             "args": [
                 "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
                 "-config",
@@ -51,7 +51,7 @@
         {
             "label": "clean",
             "type": "shell",
-            "command": "emBuild",
+            "command": "${config:ses-path}/bin/emBuild.exe",
             "args": [
                 "${workspaceFolder}/pca10040/${config:softdevice}/ses/twi_scanner_pca10040.emProject",
                 "-config",

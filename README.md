@@ -7,7 +7,6 @@
 
 ## Requirements
 - [Segger Embedded Studio](https://www.segger.com/products/development-tools/embedded-studio/)
-    - bin path also needs to be added to PATH environment variable
 - [nrfjprog](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs)
 - [J-Link Software and Documentation pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)
     - may already be installed with Segger Embedded Studio
